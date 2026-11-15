@@ -40,7 +40,7 @@ fun ReimbursementsScreen(onBack: () -> Unit, nav: (String) -> Unit) {
     val reports = rememberLoader(org) { Api.get("reimbursement_reports", mapOf("organization_id" to org, "expand" to "user")).items }
     var create by remember { mutableStateOf(false) }
     val action = rememberAction()
-    ScreenScaffold("Reimbursements", onBack, fab = { ExtendedFloatingActionButton({ create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New report") }) }) { pad ->
+    ScreenScaffold("Reimbursements", onBack, fab = { ExtendedFloatingActionButton(onClick = { create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New report") }) }) { pad ->
         LoaderBox(reports, pad) { list ->
             if (list.isEmpty()) EmptyState(Icons.Rounded.Payments, "No reports yet", "Get paid back for things you bought for the team.")
             else LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {

@@ -49,7 +49,7 @@ fun ReceiptsScreen(nav: (String) -> Unit, sharedUri: Uri?, onShareConsumed: () -
 
     ScreenScaffold(
         "Receipts", null,
-        fab = { ExtendedFloatingActionButton({ binPicker.show() }, icon = { Icon(Icons.Rounded.AddAPhoto, null) }, text = { Text("Add receipt") }) },
+        fab = { ExtendedFloatingActionButton(onClick = { binPicker.show() }, icon = { Icon(Icons.Rounded.AddAPhoto, null) }, text = { Text("Add receipt") }) },
     ) { pad ->
         PullToRefreshBox(isRefreshing = missing.refreshing, onRefresh = { missing.refresh(); bin.reload() }, modifier = Modifier.padding(pad).fillMaxSize()) {
             LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {

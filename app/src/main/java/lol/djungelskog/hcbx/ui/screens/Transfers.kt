@@ -22,10 +22,10 @@ fun TransferHubScreen(onBack: () -> Unit, nav: (String) -> Unit) {
     ScreenScaffold("Send money", onBack) { pad ->
         Column(Modifier.padding(pad).fillMaxSize().verticalScroll(rememberScrollState())) {
             Surface2(Modifier.padding(top = 8.dp)) {
-                Row2("To another HCB organization", "Instant, free", leading = { IconBadge(Icons.Rounded.SwapHoriz) }, onClick = { nav("transfer/hcb") })
-                Row2("ACH transfer", "US bank account, 1-3 business days", leading = { IconBadge(Icons.Rounded.AccountBalance) }, onClick = { nav("transfer/ach") })
-                Row2("Mailed check", "We print and mail it", leading = { IconBadge(Icons.Rounded.Mail) }, onClick = { nav("transfer/check") })
-                Row2("International wire", "Send in another currency", leading = { IconBadge(Icons.Rounded.Public) }, onClick = { nav("transfer/wire") })
+                Row2("To another HCB organization", supporting = "Instant, free", leading = { IconBadge(Icons.Rounded.SwapHoriz) }, onClick = { nav("transfer/hcb") })
+                Row2("ACH transfer", supporting = "US bank account, 1-3 business days", leading = { IconBadge(Icons.Rounded.AccountBalance) }, onClick = { nav("transfer/ach") })
+                Row2("Mailed check", supporting = "We print and mail it", leading = { IconBadge(Icons.Rounded.Mail) }, onClick = { nav("transfer/check") })
+                Row2("International wire", supporting = "Send in another currency", leading = { IconBadge(Icons.Rounded.Public) }, onClick = { nav("transfer/wire") })
             }
             Text("Large transfers may need to be approved on the HCB website; the API blocks amounts above the sudo-mode threshold.", Modifier.padding(24.dp), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }

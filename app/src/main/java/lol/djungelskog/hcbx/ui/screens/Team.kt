@@ -28,7 +28,7 @@ fun TeamScreen(onBack: () -> Unit, nav: (String) -> Unit) {
     var removal by remember { mutableStateOf<J?>(null) }
     var reason by remember { mutableStateOf("") }
     var cancelInvite by remember { mutableStateOf<J?>(null) }
-    ScreenScaffold("Team", onBack, fab = { ExtendedFloatingActionButton({ nav("invite") }, icon = { Icon(Icons.Rounded.PersonAdd, null) }, text = { Text("Invite") }) }) { pad ->
+    ScreenScaffold("Team", onBack, fab = { ExtendedFloatingActionButton(onClick = { nav("invite") }, icon = { Icon(Icons.Rounded.PersonAdd, null) }, text = { Text("Invite") }) }) { pad ->
         LoaderBox(positions, pad) { list ->
             LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {
                 val pending = invites.data.orEmpty()
@@ -107,7 +107,7 @@ fun TagsScreen(onBack: () -> Unit) {
     val action = rememberAction()
     var create by remember { mutableStateOf(false) }
     var del by remember { mutableStateOf<J?>(null) }
-    ScreenScaffold("Tags", onBack, fab = { ExtendedFloatingActionButton({ create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New tag") }) }) { pad ->
+    ScreenScaffold("Tags", onBack, fab = { ExtendedFloatingActionButton(onClick = { create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New tag") }) }) { pad ->
         LoaderBox(tags, pad) { list ->
             if (list.isEmpty()) EmptyState(Icons.Rounded.Sell, "No tags yet", "Tags help you group and filter transactions.")
             else LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {
@@ -145,7 +145,7 @@ fun SubOrgsScreen(onBack: () -> Unit) {
     val scope = rememberCoroutineScope()
     var create by remember { mutableStateOf(false) }
     val action = rememberAction()
-    ScreenScaffold("Sub-organizations", onBack, fab = { ExtendedFloatingActionButton({ create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New") }) }) { pad ->
+    ScreenScaffold("Sub-organizations", onBack, fab = { ExtendedFloatingActionButton(onClick = { create = true }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New") }) }) { pad ->
         LoaderBox(subs, pad) { list ->
             if (list.isEmpty()) EmptyState(Icons.Rounded.AccountTree, "No sub-organizations", "Spin up child organizations that share your plan.")
             else LazyColumn(Modifier.fillMaxSize()) {

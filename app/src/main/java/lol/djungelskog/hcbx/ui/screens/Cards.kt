@@ -85,7 +85,7 @@ fun CardsScreen(nav: (String) -> Unit) {
     val loader = if (tab == "mine") mine else org
     ScreenScaffold(
         "Cards", null,
-        fab = { ExtendedFloatingActionButton({ nav("order-card") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New card") }) },
+        fab = { ExtendedFloatingActionButton(onClick = { nav("order-card") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New card") }) },
     ) { pad ->
         Column(Modifier.padding(pad)) {
             ChipRow(listOf("mine" to "My cards", "org" to (AppState.orgName.ifBlank { "Organization" })), tab) { tab = it }

@@ -30,7 +30,7 @@ fun GrantsScreen(mine: Boolean, onBack: () -> Unit, nav: (String) -> Unit) {
     }
     ScreenScaffold(
         if (mine) "My grants" else "Card grants", onBack,
-        fab = { if (!mine) ExtendedFloatingActionButton({ nav("grant-new") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New grant") }) },
+        fab = { if (!mine) ExtendedFloatingActionButton(onClick = { nav("grant-new") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New grant") }) },
     ) { pad ->
         LoaderBox(grants, pad) { list ->
             if (list.isEmpty()) EmptyState(Icons.Rounded.CardGiftcard, "No card grants", if (mine) "Grants you receive will show up here." else "Give a team member a card with a spending limit.")

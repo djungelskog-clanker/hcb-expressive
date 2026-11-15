@@ -133,7 +133,7 @@ fun InvoicesScreen(onBack: () -> Unit, nav: (String) -> Unit) {
     val org = AppState.orgId
     val ctx = LocalContext.current
     val inv = rememberLoader(org) { Api.get("invoices", mapOf("event_id" to org)).items }
-    ScreenScaffold("Invoices", onBack, fab = { ExtendedFloatingActionButton({ nav("invoice-new") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New invoice") }) }) { pad ->
+    ScreenScaffold("Invoices", onBack, fab = { ExtendedFloatingActionButton(onClick = { nav("invoice-new") }, icon = { Icon(Icons.Rounded.Add, null) }, text = { Text("New invoice") }) }) { pad ->
         LoaderBox(inv, pad) { list ->
             if (list.isEmpty()) EmptyState(Icons.Rounded.Receipt, "No invoices", "Bill sponsors and get paid by card or ACH.")
             else LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {
@@ -191,7 +191,7 @@ fun DepositsScreen(onBack: () -> Unit, nav: (String) -> Unit) {
     val org = AppState.orgId
     val list = rememberLoader(org) { Api.get("check_deposits", mapOf("event_id" to org)).items }
     var open by remember { mutableStateOf<J?>(null) }
-    ScreenScaffold("Check deposits", onBack, fab = { ExtendedFloatingActionButton({ nav("deposit-new") }, icon = { Icon(Icons.Rounded.DocumentScanner, null) }, text = { Text("Deposit a check") }) }) { pad ->
+    ScreenScaffold("Check deposits", onBack, fab = { ExtendedFloatingActionButton(onClick = { nav("deposit-new") }, icon = { Icon(Icons.Rounded.DocumentScanner, null) }, text = { Text("Deposit a check") }) }) { pad ->
         LoaderBox(list, pad) { l ->
             if (l.isEmpty()) EmptyState(Icons.Rounded.DocumentScanner, "No check deposits", "Snap a photo of the front and back of a check to deposit it.")
             else LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 96.dp)) {
