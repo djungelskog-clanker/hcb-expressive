@@ -16,8 +16,8 @@ object Settings {
     var hideBalances by mutableStateOf(false); private set
     var biometricLock by mutableStateOf(false); private set
     var secureScreen by mutableStateOf(false); private set
-    var haptics by mutableStateOf(true); private set
-    var lastOrg by mutableStateOf<String?>(null); private set
+    var haptics by mutableStateOf(true)
+    var lastOrg by mutableStateOf<String?>(null)
 
     fun init(c: Context) {
         prefs = c.getSharedPreferences("hcbx_settings", Context.MODE_PRIVATE)
@@ -35,6 +35,6 @@ object Settings {
     fun setHide(v: Boolean) { hideBalances = v; prefs.edit().putBoolean("hide", v).apply() }
     fun setBio(v: Boolean) { biometricLock = v; prefs.edit().putBoolean("bio", v).apply() }
     fun setSecure(v: Boolean) { secureScreen = v; prefs.edit().putBoolean("secure", v).apply() }
-    fun setHaptics(v: Boolean) { haptics = v; prefs.edit().putBoolean("haptics", v).apply() }
-    fun setLastOrg(v: String?) { lastOrg = v; prefs.edit().putString("org", v).apply() }
+    fun updateHaptics(v: Boolean) { haptics = v; prefs.edit().putBoolean("haptics", v).apply() }
+    fun updateLastOrg(v: String?) { lastOrg = v; prefs.edit().putString("org", v).apply() }
 }

@@ -45,7 +45,7 @@ object AppState {
 
     suspend fun select(id: String) {
         orgId = id
-        Settings.setLastOrg(id)
+        Settings.updateLastOrg(id)
         // show cached list data right away, then load the expanded org
         org = orgs.firstOrNull { it.id == id } ?: J(null)
         refreshOrg()
