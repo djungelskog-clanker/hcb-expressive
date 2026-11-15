@@ -2,6 +2,7 @@
 
 package lol.djungelskog.hcbx.ui.screens
 
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -58,7 +59,7 @@ fun ReceiptsScreen(nav: (String) -> Unit, sharedUri: Uri?, onShareConsumed: () -
                     item {
                         LazyRow(contentPadding = PaddingValues(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             items(binItems) { r ->
-                                Surface(Modifier.size(110.dp), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerHigh, onClick = { matching = r }) {
+                                Surface(modifier = Modifier.size(110.dp), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerHigh, onClick = { matching = r }) {
                                     AsyncImage(r["preview_url"].s ?: r["url"].s, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
                                 }
                             }

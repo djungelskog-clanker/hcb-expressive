@@ -93,7 +93,7 @@ fun CardsScreen(nav: (String) -> Unit) {
             LoaderBox(loader) { cards ->
                 LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 96.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
                     if (tab == "mine" && grants.data.orEmpty().isNotEmpty()) item {
-                        Surface(Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.tertiaryContainer, onClick = { nav("grants/mine") }) {
+                        Surface(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.tertiaryContainer, onClick = { nav("grants/mine") }) {
                             Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                                 Icon(Icons.Rounded.CardGiftcard, null)
                                 Text("${grants.data.orEmpty().size} card grant${if (grants.data.orEmpty().size > 1) "s" else ""} for you", Modifier.weight(1f))

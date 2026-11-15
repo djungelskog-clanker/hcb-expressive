@@ -2,6 +2,7 @@
 
 package lol.djungelskog.hcbx.ui
 
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

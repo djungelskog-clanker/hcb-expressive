@@ -111,7 +111,7 @@ fun TransactionScreen(id: String, orgHint: String?, onBack: () -> Unit, nav: (St
                 } else item {
                     LazyRow(contentPadding = PaddingValues(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         items(rl) { r ->
-                            Surface(Modifier.size(120.dp), shape = MaterialTheme.shapes.large, onClick = { viewer = r }, color = MaterialTheme.colorScheme.surfaceContainerHigh) {
+                            Surface(modifier = Modifier.size(120.dp), shape = MaterialTheme.shapes.large, onClick = { viewer = r }, color = MaterialTheme.colorScheme.surfaceContainerHigh) {
                                 Box {
                                     AsyncImage(r["preview_url"].s ?: r["url"].s, r["filename"].str, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
                                     Text(r["filename"].str, Modifier.align(Alignment.BottomStart).fillMaxWidth().background(Color.Black.copy(alpha = 0.45f)).padding(6.dp), style = MaterialTheme.typography.labelSmall, maxLines = 1, color = Color.White)
