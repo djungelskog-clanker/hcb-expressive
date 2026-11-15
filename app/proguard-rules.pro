@@ -1,0 +1,4 @@
+-keepattributes *Annotation*, InnerClasses
+-dontwarn org.slf4j.**
+-keepclassmembers class kotlinx.serialization.json.** { *** Companion; }
+-keepclasseswithmembers class lol.djungelskog.hcbx.** { kotlinx.serialization.KSerializer serializer(...); }

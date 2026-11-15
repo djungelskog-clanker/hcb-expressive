@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- a coin-ish cookie with an H -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M54,30 C60,30 63,26 69,28 C75,30 74,36 78,40 C82,44 88,45 88,51 C88,57 82,59 79,63 C76,67 78,73 72,76 C66,79 61,75 54,76 C47,77 42,80 36,77 C30,74 32,68 29,64 C26,60 20,58 20,52 C20,46 26,44 29,40 C32,36 31,30 37,28 C43,26 48,30 54,30 Z" />
+    <path android:fillColor="#EC3750"
+        android:pathData="M43,41 L48,41 L48,50 L60,50 L60,41 L65,41 L65,63 L60,63 L60,55 L48,55 L48,63 L43,63 Z" />
+</vector>
